@@ -9,6 +9,26 @@ const App = () => {
 
 
   const [data, setdata] = useState([])
+  const [card, setcard] = useState([])
+  function addToCard(item){
+    console.log("Agregando")
+    const itemExist = card.findIndex((guitar)=> guitar.id === item.id )
+    console.log(itemExist)
+    if(itemExist > -1){
+      console.log("YA existe")
+      const updatedCard = [...card]
+      updatedCard[itemExist].cantidad++
+      setcard(updatedCard)
+    }
+    else{
+      item.cantidad = 1
+      setcard(prevCard => [...prevCard, item])
+    }
+    
+  }
+  function removeToCart(id){
+    console.log('eliminando')
+  }
   useEffect(() => {
     setdata(db)
   }, [])
@@ -16,7 +36,11 @@ const App = () => {
   console.log(data)
   return (
     <>
-      <Header />
+      <Header 
+        card = {card}
+        setcard = {setcard}
+        removeToCart = {removeToCart}
+      />
 
 
       <main className="container-xl mt-5">
@@ -24,8 +48,9 @@ const App = () => {
 
         <div className="row mt-5">
           {data.map((guitars) =>(
-            <Guitar 
+            <Guitar key={guitars.id}
             guitar = {guitars}
+            addToCard = {addToCard}
             />
           ))}
           
