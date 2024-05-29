@@ -14,14 +14,14 @@ const Header = (Props) => {
                 <div className="row justify-content-center justify-content-md-between">
                     <div className="col-8 col-md-3">
                         <a href="index.html">
-                            <img className="img-fluid" src="./public/img/logo.svg" alt="imagen logo" />
+                            <img className="img-fluid" src="/img/logo.svg" alt="imagen logo" />
                         </a>
                     </div>
                     <nav className="col-md-6 a mt-5 d-flex align-items-start justify-content-end">
                         <div
                             className="carrito"
                         >
-                            <img className="img-fluid" src="./public/img/carrito.png" alt="imagen carrito" />
+                            <img className="img-fluid" src="/img/carrito.png" alt="imagen carrito" />
 
                             <div id="carrito" className="bg-white p-3">
                                 {isEmpty ?
@@ -52,6 +52,7 @@ const Header = (Props) => {
                                                                 <button
                                                                     type="button"
                                                                     className="btn btn-dark"
+                                                                    onClick={()=>Props.variarCantidad(guitar.id, -1)}
                                                                 >
                                                                     -
                                                                 </button>
@@ -59,6 +60,7 @@ const Header = (Props) => {
                                                                 <button
                                                                     type="button"
                                                                     className="btn btn-dark"
+                                                                    onClick={()=>Props.variarCantidad(guitar.id, 1)}
                                                                 >
                                                                     +
                                                                 </button>
@@ -78,7 +80,9 @@ const Header = (Props) => {
                                                 </tbody>
                                             </table>
                                             <p className="text-end">Total pagar: <span className="fw-bold">${cartTotal}</span></p>
-                                            <button className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
+                                            <button 
+                                             onClick={()=>Props.vaciarCarrito()}
+                                            className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
                                         </>
                                     )
                                 }
