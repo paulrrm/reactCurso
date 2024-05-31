@@ -1,5 +1,5 @@
 import { CartItem } from "../types/types"
-interface Props{
+interface PropsHeader{
     card: CartItem[];
     setcard: () => void;
     removeToCart: () => void;
@@ -8,7 +8,7 @@ interface Props{
     isEmpty : () => void;
     cartTotal : () => void;
 }
-const Header = (Props) => {
+const Header = (PropsHeader) => {
 
    
    
@@ -30,7 +30,7 @@ const Header = (Props) => {
                             <img className="img-fluid" src="/img/carrito.png" alt="imagen carrito" />
 
                             <div id="carrito" className="bg-white p-3">
-                                {Props.isEmpty ?
+                                {PropsHeader.isEmpty ?
                                     (<p className="text-center">El carrito esta vacio</p>) :
                                     (
                                         <>
@@ -45,7 +45,7 @@ const Header = (Props) => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {Props.card.map(guitar:CartItem => (
+                                                    {PropsHeader.card.map((guitar: CartItem) => (
                                                         <tr key={guitar.id}>
                                                             <td>
                                                                 <img className="img-fluid" src={`/img/${guitar.image}.jpg`} alt="imagen guitarra" />
@@ -58,7 +58,7 @@ const Header = (Props) => {
                                                                 <button
                                                                     type="button"
                                                                     className="btn btn-dark"
-                                                                    onClick={()=>Props.variarCantidad(guitar.id, -1)}
+                                                                    onClick={()=>PropsHeader.variarCantidad(guitar.id, -1)}
                                                                 >
                                                                     -
                                                                 </button>
@@ -66,7 +66,7 @@ const Header = (Props) => {
                                                                 <button
                                                                     type="button"
                                                                     className="btn btn-dark"
-                                                                    onClick={()=>Props.variarCantidad(guitar.id, 1)}
+                                                                    onClick={()=>PropsHeader.variarCantidad(guitar.id, 1)}
                                                                 >
                                                                     +
                                                                 </button>
@@ -75,7 +75,7 @@ const Header = (Props) => {
                                                                 <button
                                                                     className="btn btn-danger"
                                                                     type="button"
-                                                                    onClick={()=>Props.removeToCart(guitar.id)}
+                                                                    onClick={()=>PropsHeader.removeToCart(guitar.id)}
                                                                 >
                                                                     X
                                                                 </button>
@@ -85,9 +85,9 @@ const Header = (Props) => {
 
                                                 </tbody>
                                             </table>
-                                            <p className="text-end">Total pagar: <span className="fw-bold">${Props.cartTotal}</span></p>
+                                            <p className="text-end">Total pagar: <span className="fw-bold">${PropsHeader.cartTotal}</span></p>
                                             <button 
-                                             onClick={()=>Props.vaciarCarrito()}
+                                             onClick={()=>PropsHeader.vaciarCarrito()}
                                             className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
                                         </>
                                     )

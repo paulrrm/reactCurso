@@ -4,7 +4,8 @@ import Header from './components/Header'
 
 import useCart from './hooks/useCart'
 import './App.css'
-import { Key } from 'react'
+
+import type { Guitar } from './types/types'
 
 function App() {
   const {card, setcard, removeToCart,vaciarCarrito,variarCantidad,data,addToCard,isEmpty,cartTotal} = useCart();
@@ -26,8 +27,9 @@ function App() {
         <h2 className="text-center">Nuestra Colección</h2>
 
         <div className="row mt-5">
-          {data.map((guitars: { id: Key | null | undefined }) =>(
-            <Guitar key={guitars.id}
+          {data.map((guitars:Guitar) =>(
+            <Guitar 
+            key={guitars.id}
             guitar = {guitars}
             addToCard = {addToCard}
             />

@@ -1,6 +1,7 @@
 import type {Guitar} from '../types/types'
 
 type GuitarProps ={
+    key:number;
     guitar:Guitar;
     addToCard:(item:Guitar)=> void
 }
