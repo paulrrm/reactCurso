@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-
+import { useEffect, useState,useMemo } from "react"
+import {db} from '../data/db'
 
 const useCart = () => {
     
@@ -7,9 +7,10 @@ const useCart = () => {
       const localStorageItem = localStorage.getItem('cardGuitarLa')
       return localStorageItem ? JSON.parse(localStorageItem): []
     }
-    const [data, setdata] = useState([])
+    const [data, setdata] = useState(db)
     const [card, setcard] = useState(initialCart)
-    
+    const isEmpty = useMemo( () => card.length === 0, [card])
+    const cartTotal =useMemo( () => card.reduce((total, item)=> total + (item.cantidad * item.price),0),[card])
     function addToCard(item){
       console.log("Agregando")
       const itemExist = card.findIndex((guitar)=> guitar.id === item.id )
@@ -72,7 +73,7 @@ const useCart = () => {
         addToCard,
         card,
         setcard,
-        data
+        data, isEmpty, cartTotal
     }
 
 }

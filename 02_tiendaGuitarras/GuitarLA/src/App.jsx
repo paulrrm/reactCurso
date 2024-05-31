@@ -7,7 +7,7 @@ import useCart from './hooks/useCart'
 
 const App = () => {
 
-  const {card, setcard, removeToCart,vaciarCarrito,variarCantidad,data,addToCard} = useCart();
+  const {card, setcard, removeToCart,vaciarCarrito,variarCantidad,data,addToCard,isEmpty,cartTotal} = useCart();
   
   return (
     <>
@@ -17,6 +17,8 @@ const App = () => {
         removeToCart = {removeToCart}
         variarCantidad = {variarCantidad}
         vaciarCarrito = {vaciarCarrito}
+        isEmpty = {isEmpty}
+        cartTotal = {cartTotal}
       />
 
 

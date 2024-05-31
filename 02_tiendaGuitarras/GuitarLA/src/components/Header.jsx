@@ -1,10 +1,8 @@
-import { useMemo } from "react"
 
 
 const Header = (Props) => {
 
-    const isEmpty = useMemo( () => Props.card.length === 0, [Props.card])
-    const cartTotal =useMemo( () => Props.card.reduce((total, item)=> total + (item.cantidad * item.price),0),[Props.card])
+   
    
 
     return (
@@ -24,7 +22,7 @@ const Header = (Props) => {
                             <img className="img-fluid" src="/img/carrito.png" alt="imagen carrito" />
 
                             <div id="carrito" className="bg-white p-3">
-                                {isEmpty ?
+                                {Props.isEmpty ?
                                     (<p className="text-center">El carrito esta vacio</p>) :
                                     (
                                         <>
@@ -79,7 +77,7 @@ const Header = (Props) => {
 
                                                 </tbody>
                                             </table>
-                                            <p className="text-end">Total pagar: <span className="fw-bold">${cartTotal}</span></p>
+                                            <p className="text-end">Total pagar: <span className="fw-bold">${Props.cartTotal}</span></p>
                                             <button 
                                              onClick={()=>Props.vaciarCarrito()}
                                             className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
