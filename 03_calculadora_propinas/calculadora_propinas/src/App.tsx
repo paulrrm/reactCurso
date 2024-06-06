@@ -1,3 +1,4 @@
+import Menuitem from "./components/Menuitem"
 import { menuItems } from "./data/db"
 
 const App = () => {
@@ -9,8 +10,16 @@ const App = () => {
         <h1 className="text-center text-4xl font-black">Calculadora de propina y consumo</h1>
       </header>
       <main className="max-w-7xl mx-auto  py-20 grid md:grid-cols-2">
-        <div>
+        <div className="p-5">
           <h2>Menu</h2>
+          <div className="space-y-2">
+            {menuItems.map(item => (
+              <Menuitem
+                key={item.id}
+                item={item}
+              />
+            ))}
+          </div>
         </div>
         <div>
           <h2>Consumo</h2>

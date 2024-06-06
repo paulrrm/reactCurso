@@ -1,6 +1,18 @@
+import type { menuItem } from "../types"
+type MenuitemProps ={
+  item: menuItem
+}
 
-export default function Menuitem() {
+export default function Menuitem({item}:MenuitemProps) {
   return (
-    <div>Menuitem</div>
+    <>
+      <button
+      className="border-2 border-teal-400 hover:bg-teal-200 w-full flex justify-between"
+      >
+      <p className="px-4">{item.name}</p>
+      <p className="font-black px-4">${item.price}</p>
+      </button>
+      
+    </>
   )
 }
