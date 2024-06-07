@@ -1,6 +1,6 @@
-import type { menuItem } from "../types"
+import type { MenuItem } from "../types"
 type MenuitemProps ={
-  item: menuItem
+  item: MenuItem
 }
 
 export default function Menuitem({item}:MenuitemProps) {
