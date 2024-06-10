@@ -1,8 +1,11 @@
 import Menuitem from "./components/Menuitem"
+import { OrdenContents } from "./components/OrdenContents"
 import { menuItems } from "./data/db"
+import  useOrden from "./hooks/useOrden"
 
 const App = () => {
   console.log(menuItems)
+  const {addItem,orden, removeItem}= useOrden()
   return (
 
     <div>
@@ -17,12 +20,17 @@ const App = () => {
               <Menuitem
                 key={item.id}
                 item={item}
+                addItem = {addItem}
               />
             ))}
           </div>
         </div>
-        <div>
-          <h2>Consumo</h2>
+        <div className="border border-dashed border-slate-300 p-5 rounded-lg space-y-10">
+        
+          <OrdenContents
+          orden ={orden}
+          removeItem ={removeItem}
+          />
         </div>
       </main>
 
