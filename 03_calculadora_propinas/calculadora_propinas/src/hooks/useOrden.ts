@@ -4,6 +4,7 @@ import type { MenuItem, OrdenItem } from "../types"
 export default function useOrden() {
 
     const [orden, setorden] = useState<OrdenItem[]>([])
+    const [tip, settip] = useState(0)
 
     const addItem = (item: MenuItem) => {
         const itemExist = orden.find(ordenItem => ordenItem.id === item.id)
@@ -34,5 +35,7 @@ export default function useOrden() {
         setorden,
         addItem,
         removeItem,
+        tip,
+        settip
     }
 }

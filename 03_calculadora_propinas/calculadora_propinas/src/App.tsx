@@ -1,11 +1,13 @@
 import Menuitem from "./components/Menuitem"
 import { OrdenContents } from "./components/OrdenContents"
+import TipPorcent from "./components/TipPorcent"
+import TotalOrden from "./components/TotalOrden"
 import { menuItems } from "./data/db"
 import  useOrden from "./hooks/useOrden"
 
 const App = () => {
   console.log(menuItems)
-  const {addItem,orden, removeItem}= useOrden()
+  const {addItem,orden, removeItem,tip,settip}= useOrden()
   return (
 
     <div>
@@ -31,7 +33,15 @@ const App = () => {
           orden ={orden}
           removeItem ={removeItem}
           />
+          <TipPorcent 
+          settip = {settip}
+          />
+          <TotalOrden
+          orden={orden}
+          tip ={tip}
+          />
         </div>
+        
       </main>
 
     </div>
