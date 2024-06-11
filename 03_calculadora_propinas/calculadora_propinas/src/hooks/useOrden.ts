@@ -28,7 +28,12 @@ export default function useOrden() {
        
         setorden(local.filter(item => item !== OrdenItem))
     }
-
+    const clearOrden = () => {
+        
+       
+        setorden([])
+        settip(0)
+    }
 
     return {
         orden,
@@ -36,6 +41,6 @@ export default function useOrden() {
         addItem,
         removeItem,
         tip,
-        settip
+        settip,clearOrden
     }
 }

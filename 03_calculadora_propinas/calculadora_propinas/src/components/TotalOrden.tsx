@@ -1,13 +1,15 @@
-import  { useCallback, useMemo } from 'react'
+import  { useCallback } from 'react'
 import { OrdenItem } from '../types'
 import { formatCurrency } from '../helpers'
 
 type OrdenTotalsProps = {
     orden:OrdenItem[],
-    tip:number
+    tip:number,
+    clearOrden: () => void
+
 }
 
-const TotalOrden = ({orden,tip}:OrdenTotalsProps) => {
+const TotalOrden = ({orden,tip,clearOrden}:OrdenTotalsProps) => {
     const subTotal = useCallback(() => orden.reduce( (total , item) => total+(item.price*item.quantity), 0),[orden])
     const tipAmount = useCallback(()=> subTotal()*tip,[tip,orden])
     const totalOrd = useCallback(()=> subTotal()+tipAmount(),[tip,orden])
@@ -20,6 +22,7 @@ const TotalOrden = ({orden,tip}:OrdenTotalsProps) => {
             <p>Total a pagar: <span className='font-bold ml-1'>{formatCurrency( totalOrd())}</span></p>
         </div>
         <button className='w-full bg-blue-800 p-3 uppercase rounded-lg text-white disabled:opacity-10'
+        onClick={clearOrden}
         disabled = {totalOrd() === 0}
         >
             Guarder Orden
