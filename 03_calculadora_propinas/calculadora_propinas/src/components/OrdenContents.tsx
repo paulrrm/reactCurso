@@ -2,7 +2,8 @@ import { formatCurrency } from "../helpers"
 import type { OrdenItem } from "../types"
 type OrdenitemProps = {
   orden: OrdenItem[],
-  removeItem: (item:OrdenItem) => void
+  removeItem: (item:OrdenItem) => void,
+  clearOrden: () => void
 
 }
 export const OrdenContents = ({ orden , removeItem}: OrdenitemProps) => {

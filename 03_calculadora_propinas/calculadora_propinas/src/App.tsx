@@ -7,7 +7,7 @@ import  useOrden from "./hooks/useOrden"
 
 const App = () => {
   console.log(menuItems)
-  const {addItem,orden, removeItem,tip,settip}= useOrden()
+  const {addItem,orden, removeItem,tip,settip,clearOrden}= useOrden()
   return (
 
     <div>
@@ -35,10 +35,12 @@ const App = () => {
           />
           <TipPorcent 
           settip = {settip}
+          tip = {tip}
           />
           <TotalOrden
           orden={orden}
           tip ={tip}
+          clearOrden={clearOrden}
           />
         </div>
         
