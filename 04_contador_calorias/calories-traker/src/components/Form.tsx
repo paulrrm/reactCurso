@@ -31,6 +31,20 @@ const Form = () => {
                 >
                 </input>
             </div>
+            <div className="grid grid-cols-1 gap-3">
+                <label htmlFor="calories" className="font-bold">Calorias:</label>
+                <input 
+                id="calories"
+                type="number"
+                className="border border-slate-200 p-2 rounded-lg"
+                placeholder="Ej. 200 , 400 ,800"
+                >
+                </input>
+            </div>
+            <input type="submit" 
+            className="bg-gray-600 hover:bg-gray-900 w-full p-2 font-bold uppercase text-white cursor-pointer"
+            value="Guardar"
+            />
         </form>
     )
 }
