@@ -28,15 +28,6 @@ const useCart = () => {
       }
       
     }
-    function removeToCart(id:number){
-      console.log('eliminando')
-      
-      const updatedCard = [...card]
-      const findIndex = updatedCard.findIndex(item => item.id === id)
-      updatedCard.splice(findIndex,1)
-      setcard(updatedCard)
-       
-    }
     function variarCantidad(id:number , cantidad:number){
       const updatedCard = [...card]
       const findIndex = updatedCard.findIndex(item => item.id === id)
